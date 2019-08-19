@@ -1,6 +1,15 @@
+#' Longest Commen Substring
+#'
+#' it takes two strings
+#' @param aString and bString are two strings
+#' @return the Longest Commen SubString.
+#' @import stringr
+#' @export
+#'
 
-LongestCommenSubString <- function(aString, bString){
-  LCS = matrix(data = 0,nrow = nchar(aString)+1, ncol = nchar(bString)+1)
+library(stringr)
+LCS <- function(aString, bString){
+  LongestCommenSubString = matrix(data = 0,nrow = nchar(aString)+1, ncol = nchar(bString)+1)
 
 
   for(i in 1:nchar(aString)+1){
@@ -8,10 +17,10 @@ LongestCommenSubString <- function(aString, bString){
     for (j in 1:nchar(bString)+1){
       b<-str_sub(bString, j-1, j-1)
       if(a==b){
-        LCS[i,j] = LCS[i-1,j-1]+1
+        LongestCommenSubString[i,j] = LongestCommenSubString[i-1,j-1]+1
       }
       else{
-        LCS[i,j] = 0
+        LongestCommenSubString[i,j] = 0
       }
     }
   }
@@ -20,8 +29,8 @@ LongestCommenSubString <- function(aString, bString){
 
   for (i in 1:nchar(aString)+1){
     for (j in 1:nchar(bString)+1){
-      if (result<LCS[i,j]){
-        result = LCS[i,j]
+      if (result<LongestCommenSubString[i,j]){
+        result = LongestCommenSubString[i,j]
         aIndex = i
       }
     }
