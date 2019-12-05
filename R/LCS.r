@@ -8,7 +8,7 @@
 #'
 
 library(stringr)
-LCS <- function(aString, bString){
+LCS <- function(aString, bString, maxLength){
   LongestCommenSubString = matrix(data = 0,nrow = nchar(aString)+1, ncol = nchar(bString)+1)
 
 
@@ -35,7 +35,7 @@ LCS <- function(aString, bString){
       }
     }
   }
-  if (result > 1){
+  if (result > maxLength){
     commenSubString <- str_sub(aString, aIndex-result, aIndex-1)
   }
   else{
