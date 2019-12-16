@@ -1,14 +1,17 @@
-\name{LCS}
-\alias{LCS}
+\name{LCStr}
+\alias{LCStr}
 \title{Longest Commen SubString}
 \usage{
-  LCS(aString, bString)
+  LCStr(aString, bString)
 }
 \description{
-  pass in two parameters (strings), and returns the longest commen substring
+  pass in 3 parameters, and returns the longest common substring
+  arg1: string one
+  arg2: string two
+  arg3: minimum Length of the common substring.
+
 }
 \examples{
-  LCS("AABCC","BACCABC") returns "ABC"
+  LCStr("AABCC","BACCABC",1) returns "ABC"
 
 }
-

@@ -1,7 +1,7 @@
 # LongestCommenSubStringR   
 
 ## require library(stringr)  
-## LCS("AABCC","BACCABC", 1) returns "ABC"  
+## LCStr("AABCC","BACCABC", 1) returns "ABC"  
 ## pass in 3 parameters, and returns the longest common substring  
 ## arg1: string one  
 ## arg2: string two  

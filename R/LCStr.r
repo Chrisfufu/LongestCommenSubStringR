@@ -1,8 +1,8 @@
-#' Longest Commen Substring
+#' Longest Common Substring
 #'
 #' it takes two strings
 #' @param aString and bString are two strings
-#' @return the Longest Commen SubString.
+#' @return the Longest Common SubString.
 #' @import stringr
 #' @export
 #'
@@ -10,7 +10,7 @@
 library(stringr)
 
 LCStr <- function(aString, bString, minLen){
-  
+
   LCS = matrix(data = 0,nrow = nchar(aString)+1, ncol = nchar(bString)+1)
   lengthOfSubstring = -1
   finalIndex = -1
@@ -33,7 +33,7 @@ LCStr <- function(aString, bString, minLen){
   }
 
   if (lengthOfSubstring > minLen){
-    return (str_sub(aString, finalIndex-lengthOfSubstring, finalIndex-1)) 
+    return (str_sub(aString, finalIndex-lengthOfSubstring, finalIndex-1))
   }
   else{
     return('no result')
