@@ -8,39 +8,34 @@
 #'
 
 library(stringr)
-LCS <- function(aString, bString, maxLength){
-  LongestCommenSubString = matrix(data = 0,nrow = nchar(aString)+1, ncol = nchar(bString)+1)
 
+LCStr <- function(aString, bString, minLen){
+  
+  LCS = matrix(data = 0,nrow = nchar(aString)+1, ncol = nchar(bString)+1)
+  lengthOfSubstring = -1
+  finalIndex = -1
 
   for(i in 1:nchar(aString)+1){
     a<-str_sub(aString, i-1, i-1)
     for (j in 1:nchar(bString)+1){
       b<-str_sub(bString, j-1, j-1)
       if(a==b){
-        LongestCommenSubString[i,j] = LongestCommenSubString[i-1,j-1]+1
+        LCS[i,j] = LCS[i-1,j-1]+1
+        if (lengthOfSubstring < LCS[i,j]){
+          lengthOfSubstring = LCS[i,j]
+          finalIndex = i
+        }
       }
       else{
-        LongestCommenSubString[i,j] = 0
+        LCS[i,j] = 0
       }
     }
   }
 
-  result = -1
-
-  for (i in 1:nchar(aString)+1){
-    for (j in 1:nchar(bString)+1){
-      if (result<LongestCommenSubString[i,j]){
-        result = LongestCommenSubString[i,j]
-        aIndex = i
-      }
-    }
-  }
-  if (result > maxLength){
-    commenSubString <- str_sub(aString, aIndex-result, aIndex-1)
+  if (lengthOfSubstring > minLen){
+    return (str_sub(aString, finalIndex-lengthOfSubstring, finalIndex-1)) 
   }
   else{
-    commenSubString =-1
+    return('no result')
   }
-
-  return(commenSubString)
 }
