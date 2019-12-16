@@ -1,6 +1,6 @@
 \name{LCStr}
 \alias{LCStr}
-\title{Longest Commen SubString}
+\title{Longest Common SubString}
 \usage{
   LCStr(aString, bString)
 }
@@ -9,7 +9,6 @@
   arg1: string one
   arg2: string two
   arg3: minimum Length of the common substring.
-
 }
 \examples{
   LCStr("AABCC","BACCABC",1) returns "ABC"
