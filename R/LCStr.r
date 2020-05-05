@@ -7,7 +7,7 @@
 #' @export
 #'
 
-library(stringr)
+
 
 LCStr <- function(aString, bString, minLen){
 
@@ -16,9 +16,9 @@ LCStr <- function(aString, bString, minLen){
   finalIndex = -1
 
   for(i in 1:nchar(aString)+1){
-    a<-str_sub(aString, i-1, i-1)
+    a<-stringr::str_sub(aString, i-1, i-1)
     for (j in 1:nchar(bString)+1){
-      b<-str_sub(bString, j-1, j-1)
+      b<-stringr::str_sub(bString, j-1, j-1)
       if(a==b){
         LCS[i,j] = LCS[i-1,j-1]+1
         if (lengthOfSubstring < LCS[i,j]){
@@ -33,7 +33,7 @@ LCStr <- function(aString, bString, minLen){
   }
 
   if (lengthOfSubstring > minLen){
-    return (str_sub(aString, finalIndex-lengthOfSubstring, finalIndex-1))
+    return (stringr::str_sub(aString, finalIndex-lengthOfSubstring, finalIndex-1))
   }
   else{
     return('no result')
